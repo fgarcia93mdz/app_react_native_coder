@@ -2,8 +2,8 @@
 
 Franco Garcia
 
-En el archivo first esta el desafio 1 de Coder. 
+En el archivo first esta el desafío 1 de Coder. 
 
-En el archivo second esta el safio 2 de Coder. 
+En el archivo second esta el desafío 2 de Coder. 
 
-En el archivo invite es el desafio final, que ire mejorando y escalando a medida que avance el curso. 
+En el archivo invite es el desafío final, que ire mejorando y escalando a medida que avance el curso. 
