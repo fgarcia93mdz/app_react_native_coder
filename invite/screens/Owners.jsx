@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 1,
     elevation: 2,
+    backgroundColor: 'red'
   },
   itemText: {
     color: '#333',
@@ -63,8 +64,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     padding: 5,
   },
-  deleteButtonText: {
-    // Estilos para el texto de tu botón de borrar
+  checkButton: {
+    borderRadius: 5,
+    backgroundColor: 'green',
+    padding: 5,
   },
   headerContainer: {
     alignItems: 'center',
@@ -133,6 +136,11 @@ export default function App() {
     setAllOwners(prevTasks => prevTasks.filter(task => task.id !== id));
   };
 
+  const handleOwnerChange = (text) => {
+    const capitalizedText = text.charAt(0).toUpperCase() + text.slice(1);
+    setOwner(capitalizedText);
+  };
+
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'column' }}>
@@ -140,7 +148,7 @@ export default function App() {
           placeholder='Ingrese Dueño'
           style={styles.textInput}
           value={owner}
-          onChangeText={setOwner}
+          onChangeText={handleOwnerChange}
         />
         <TextInput
           placeholder='Ingrese Dirección'
@@ -153,6 +161,7 @@ export default function App() {
           style={styles.textInput}
           value={phone}
           onChangeText={setPhone}
+          keyboardType='numeric'
         />
         <TouchableOpacity
           style={styles.touchableOpacity}
@@ -167,11 +176,22 @@ export default function App() {
         <FlatList
           data={allOwners}
           renderItem={({ item }) => (
-            <View style={styles.itemContainer}>
+            <View style={[styles.itemContainer, { backgroundColor: item.color }]}>
               <Text style={styles.itemText}>{item.id}</Text>
               <Text style={styles.itemText}>{item.address}</Text>
               <Text style={styles.itemText}>{item.owner}</Text>
               <Text style={styles.itemText}>{item.phone}</Text>
+              <TouchableOpacity style={styles.checkButton} onPress={() => {
+                setAllOwners(allOwners.map(owner => {
+                  if (owner.id === item.id) {
+                    return { ...owner, color: '#abc' };
+                  } else {
+                    return owner;
+                  }
+                }));
+              }} >
+                <Icon name="check" size={20} color="#fff" />
+              </TouchableOpacity>
               <TouchableOpacity
                 style={styles.deleteButton}
                 onPress={() => { setOwnerToDelete(item); setModalVisible(true); }}
@@ -188,16 +208,16 @@ export default function App() {
             </View>
           }
         />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
               <Text style={styles.modalText}>
                 ¿Estás seguro de que quieres borrar a {ownerToDelete ? ownerToDelete.owner : ''}?
               </Text>
@@ -217,14 +237,14 @@ export default function App() {
                     handleDelete(ownerToDelete.id);
                     setModalVisible(!modalVisible);
                   }}
-                textColor='red'
+                  textColor='red'
                 >
                   Borrar
                 </Button>
               </View>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
       </View>
     </View>
   );
