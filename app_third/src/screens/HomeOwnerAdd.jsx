@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Modal } 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-paper';
 import Header from '../components/Header';
+import ModalDelete from '../components/ModalDelete';
 
 const styles = StyleSheet.create({
   container: {
@@ -211,43 +212,12 @@ export default function App() {
               </View>
             }
           />
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>
-                  ¿Estás seguro de que quieres borrar a {ownerToDelete ? ownerToDelete.owner : ''}?
-                </Text>
-                <Text style={styles.modalTextSub}>
-                  Le avisaremos que ya no es bienvenido en el barrio.
-                </Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Button
-                    onPress={() => {
-                      setModalVisible(!modalVisible);
-                    }}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button
-                    onPress={() => {
-                      handleDelete(ownerToDelete.id);
-                      setModalVisible(!modalVisible);
-                    }}
-                    textColor='red'
-                  >
-                    Borrar
-                  </Button>
-                </View>
-              </View>
-            </View>
-          </Modal>
+          <ModalDelete
+            ownerToDelete={ownerToDelete}
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+            handleDelete={handleDelete}
+          />
         </View>
       </View>
     </>
