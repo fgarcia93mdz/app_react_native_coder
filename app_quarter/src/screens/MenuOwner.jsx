@@ -8,30 +8,22 @@ const MenuCompany = () => {
 
   return (
     <>
-      <Header title="Administración barrio" />
+      <Header title="Hola Jorge" />
       <View>
         <Button
-          title="Ir a Listado de dueños"
-          onPress={() => navigation.navigate('HomeOwnerList')}
+          title="Administrar mi casa"
+          //onPress={() => navigation.navigate('HomeOwnerList')}
         />
         <Button
-          title="Crear nuevo dueño"
-          onPress={() => navigation.navigate('HomeOwner')}
-        />
-        <Button
-          title="Visitas"
+          title="Mis visitas"
           //onPress={() => navigation.navigate('HomeOwner')}
         />
         <Button
-          title="Expensas"
+          title="Contactar a la administración"
         //onPress={() => navigation.navigate('HomeOwner')}
         />
         <Button
-          title="Denuncias"
-        //onPress={() => navigation.navigate('HomeOwner')}
-        />
-        <Button
-          title="Chat con dueños"
+          title="Denuncias y reclamos"
         //onPress={() => navigation.navigate('HomeOwner')}
         />
       </View>

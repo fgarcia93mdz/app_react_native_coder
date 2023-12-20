@@ -9,7 +9,7 @@ const Home = () => {
   useFocusEffect(
     React.useCallback(() => {
       const timer = setTimeout(() => {
-        navigation.navigate('MenuCompany');
+        navigation.navigate('LoginHome');
       }, 3000); 
 
       return () => clearTimeout(timer);

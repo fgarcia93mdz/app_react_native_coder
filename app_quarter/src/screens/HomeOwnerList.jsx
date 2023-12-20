@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native'
 import { Card } from 'react-native-elements';
 import { useEffect, useState } from 'react';
-import Header from '../components/Header'
+import Header from '@components/Header'
 import HomeOwnerJson from '../data/HomeOwnerList.json'
 import HomeOwner from './HomeOwnerAdd'
-import ButtonTouch from '../components/ButtonTouch';
+import ButtonTouch from '@components/ButtonTouch';
 
 const HomeOwnerList = () => {
   const [homeOwner, setHomeOwner] = useState([])

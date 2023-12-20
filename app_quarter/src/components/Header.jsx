@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import {colors} from '../global/colors'
-import ButtonTouch from '../components/ButtonTouchBack';
+import ButtonTouch from '@components/ButtonTouchBack';
 
 const Header = ({title}) => {
   return (

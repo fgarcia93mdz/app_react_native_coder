@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-paper';
-import Header from '../components/Header';
-import ModalDelete from '../components/ModalDelete';
+import Header from '@components/Header';
+import ModalDelete from '@components/ModalDelete';
 
 const styles = StyleSheet.create({
   container: {
