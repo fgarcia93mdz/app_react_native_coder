@@ -8,11 +8,11 @@ const MenuCompany = () => {
 
   return (
     <>
-      <Header title="Hola Jorge" />
+      <Header title="Hola Franco" />
       <View>
         <Button
           title="Administrar mi casa"
-          //onPress={() => navigation.navigate('HomeOwnerList')}
+          onPress={() => navigation.navigate('OwnerDataScreen', { title: 'Administrar mi casa' })}
         />
         <Button
           title="Mis visitas"
