@@ -16,7 +16,7 @@ const MenuCompany = () => {
         />
         <Button
           title="Mis visitas"
-          //onPress={() => navigation.navigate('HomeOwner')}
+          onPress={() => navigation.navigate('VisitList',{title: 'Mis visitas'})}
         />
         <Button
           title="Contactar a la administración"

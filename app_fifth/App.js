@@ -10,6 +10,7 @@ import MenuCompany from '@screens/MenuCompany';
 import MenuOwner from '@screens/MenuOwner';
 import LoginHome from '@screens/LoginHome';
 import OwnerDataScreen from '@screens/OwnerDataScreen';
+import VisitList from './src/screens/VisitList';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,7 @@ export default function App() {
         <Stack.Screen name="LoginHome" component={LoginHome} options={{ headerShown: false }} />
         <Stack.Screen name="MenuOwner" component={MenuOwner} options={{ headerShown: false }} />
         <Stack.Screen name="OwnerDataScreen" component={OwnerDataScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="VisitList" component={VisitList} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
